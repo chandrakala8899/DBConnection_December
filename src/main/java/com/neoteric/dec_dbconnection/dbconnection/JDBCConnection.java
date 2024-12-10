@@ -26,18 +26,11 @@ public class JDBCConnection {
                     "m.id AS ManagerID, m.name AS ManagerName, " + "p.pname AS ProjectName, p.startdate, p.enddate " +
                     "FROM sonar.Employee e " + "LEFT JOIN sonar.Employee m ON e.mid = m.id " +"INNER JOIN sonar.project p ON e.pid = p.id";
 
-//             String query = "SELECT e.id AS EmployeeID, e.name AS EmployeeName, m.id AS ManagerID, m.name AS ManagerName\n" +
-//                     "FROM sonar.Employee e INNER JOIN sonar.Employee m ON e.mid = m.id";
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
 
-                System.out.println("Employee ID: " + resultSet.getInt("EmployeeID") +
-                        ", Employee Name: " + resultSet.getString("EmployeeName") +
-                        ",Employee Salary: " + resultSet.getString("salary")+
-                        ", Project Name: " + resultSet.getString("ProjectName") +
-                        ", Manager Name: " + resultSet.getString("ManagerName"));
 
                 int projectId = resultSet.getInt("ProjectId");
                 Project project = projectMap.getOrDefault(projectId, new Project());
@@ -51,18 +44,17 @@ public class JDBCConnection {
                     projects.add(project);
                 }
 
-                // Fetch Employee details
                 int employeeId = resultSet.getInt("EmployeeID");
                 Employee employee = employeeMap.getOrDefault(employeeId, new Employee());
                 if (!employeeMap.containsKey(employeeId)) {
                     employee.setId(employeeId);
                     employee.setName(resultSet.getString("EmployeeName"));
-                   employee.setSalary(resultSet.getDouble("salary"));
+                    employee.setSalary(resultSet.getDouble("salary"));
                     employee.setDept(resultSet.getString("dept"));
                     employee.setPid(projectId);
                     employee.setEmployeeList(new ArrayList<>());
                     employeeMap.put(employeeId, employee);
-                    project.getEmployeeList().add(employee); // Add employee to project
+                    project.getEmployeeList().add(employee);
                 }
 
                 int managerId = resultSet.getInt("ManagerID");

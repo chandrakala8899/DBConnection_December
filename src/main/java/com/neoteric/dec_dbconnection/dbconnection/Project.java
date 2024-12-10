@@ -10,6 +10,8 @@ public class Project {
     private  String pname;
     private LocalDate startdate;
 
+
+
     public LocalDate getStartdate() {
         return startdate;
     }
@@ -57,6 +59,14 @@ public class Project {
         this.pname = pname;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", pname='" + pname + '\'' +
+                ", startdate=" + startdate +
+                ", enddate=" + enddate +
+                ", employeeList=" + employeeList +
+                '}';
+    }
 }

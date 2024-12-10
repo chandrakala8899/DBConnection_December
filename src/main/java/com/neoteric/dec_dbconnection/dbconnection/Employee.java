@@ -9,8 +9,17 @@ public class Employee {
         private int pid;
         private String name;
         private String dept;
+ private  Employee manager;
 
-         private  double salary;
+    public Employee getManager() {
+        return manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
+
+    private  double salary;
 
         private  int mid;
         private List<Employee> employeeList;
@@ -69,7 +78,20 @@ public class Employee {
             return dept;
         }
 
-        public void setDept(String dept) {
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", pid=" + pid +
+                ", name='" + name + '\'' +
+                ", dept='" + dept + '\'' +
+                ", salary=" + salary +
+                ", mid=" + mid +
+                ", employeeList=" + employeeList +
+                '}';
+    }
+
+    public void setDept(String dept) {
             this.dept = dept;
         }
 
@@ -79,7 +101,8 @@ public class Employee {
 
         public void setSalary(Double salary) {
             this.salary = salary;
-        }
+
     }
+}
 
 
