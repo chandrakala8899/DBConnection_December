@@ -12,18 +12,18 @@ import java.util.Map;
 import jakarta.persistence.*;
 
 public class JpaPractice {
-@PersistenceUnit(name = "JpaDemo")
-    private  EntityManagerFactory entityManagerFactory;
+//@PersistenceUnit(name = "JpaDemo")
+//    private  EntityManagerFactory entityManagerFactory;
 
     public Map<Integer, List<Employee>> getAllocationEmployeesJpa() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("JpaDemo");
+     EntityManagerFactory   entityManagerFactory = Persistence.createEntityManagerFactory("JpaDemo");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Map<Integer, List<Employee>> projectEmployeeMap = new HashMap<>();
 
         try {
             entityManager.getTransaction().begin();
             String sql = "SELECT p.id as projectId, e.id as employeeId, e.name as employeeName " +
-                    "FROM sonar.project p CROSS JOIN sonar.Employee e WHERE p.id = e.pid";
+                    "FROM  sonar.project p CROSS JOIN sonar.Employee e WHERE p.id = e.pid";
 
             Query query = entityManager.createNativeQuery(sql);
 

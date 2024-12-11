@@ -17,7 +17,7 @@ public class Project {
     @Column(name = "pname")
     private String name;
 
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Employee> employees;
 
      @Column(name = "startdate",nullable = false)

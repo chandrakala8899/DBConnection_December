@@ -1,7 +1,7 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
     <persistence-unit name="JpaDemo">
-        <class>com.neoteric.dec_dbconnection.jpaconnection.Project</class>
-        <class>com.neoteric.dec_dbconnection.jpaconnection.Employee</class>
+        <class>com.neoteric.dec_dbconnection.jpa_db.ProjectEntity</class>
+        <class> com.neoteric.dec_dbconnection.jpa_db.EmployeeEntity</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/sonar"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
