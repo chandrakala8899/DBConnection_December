@@ -23,9 +23,6 @@ public class Employee{
     @Column(name = "salary", nullable = false)
     private double salary;
 
-//    @Column(name = "pid", insertable = false, updatable = false)
-//    private int pid;
-
     @ManyToOne
     @JoinColumn(name = "pid",referencedColumnName = "id")
     private Project project;

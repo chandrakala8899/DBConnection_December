@@ -1,7 +1,6 @@
 package com.neoteric.dec_dbconnection.jpaconnection;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
