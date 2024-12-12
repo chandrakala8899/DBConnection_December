@@ -8,28 +8,21 @@ import java.util.List;
 @Entity
 @Table(name = "project", schema = "sonar")
 public class ProjectEntity {
-    public  ProjectEntity(){
-
-    }
     @Id
-    @Column(name = "id")
-    private  int id;
+    @Column(name = "id", nullable = false)
+    private int id;
 
+    @Column(name = "pname", nullable = false)
+    private String name;
 
-    @OneToMany(mappedBy = "projectEntity",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<EmployeeEntity> employeeEntityList;
-
-    @OneToMany(mappedBy = "projectEntity",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<EmployeeEntity> employees;
 
-    @Column(name = "pname")
-    private  String name;
-    @Column(name = "startdate")
+    @Column(name = "startdate", nullable = false)
     private Date startDate;
 
-    @Column(name = "enddate")
-    private  Date endDate;
-
+    @Column(name = "enddate", nullable = false)
+    private Date endDate;
 
     public int getId() {
         return id;
@@ -39,20 +32,20 @@ public class ProjectEntity {
         this.id = id;
     }
 
-    public List<EmployeeEntity> getEmployeeEntityList() {
-        return employeeEntityList;
-    }
-
-    public void setEmployeeEntityList(List<EmployeeEntity> employeeEntityList) {
-        this.employeeEntityList = employeeEntityList;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<EmployeeEntity> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<EmployeeEntity> employees) {
+        this.employees = employees;
     }
 
     public Date getStartDate() {
@@ -73,13 +66,15 @@ public class ProjectEntity {
 
     @Override
     public String toString() {
-        return "ProjectEntity{" +
+        return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", employees=" + (employees != null ? employees.size() : 0) +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 '}';
     }
 }
+
 
 
