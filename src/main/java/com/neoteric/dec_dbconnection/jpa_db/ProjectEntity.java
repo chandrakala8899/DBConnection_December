@@ -13,6 +13,7 @@ public class ProjectEntity {
     private int id;
 
     @Column(name = "pname", nullable = false)
+
     private String name;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
