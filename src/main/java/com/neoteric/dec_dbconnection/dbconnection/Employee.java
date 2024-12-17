@@ -11,9 +11,7 @@ public class Employee {
         private String dept;
  private  Employee manager;
 
-    public Employee getManager() {
-        return manager;
-    }
+
 
     public void setManager(Employee manager) {
         this.manager = manager;

@@ -1,6 +1,7 @@
 package com.neoteric.dec_dbconnection.dbconnection;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,27 +9,26 @@ public class Project {
 
     private  int id;
     private  String pname;
-    private LocalDate startdate;
+    private Date startdate;
+    private Date enddate;
 
 
 
-    public LocalDate getStartdate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(LocalDate startdate) {
+    public void setStartdate(Date startdate) {
         this.startdate = startdate;
     }
 
-    public LocalDate getEnddate() {
+    public Date getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(LocalDate enddate) {
+    public void setEnddate(Date enddate) {
         this.enddate = enddate;
     }
-
-    private  LocalDate enddate;
 
     public List<Employee> getEmployeeList() {
         return employeeList;
@@ -38,7 +38,7 @@ public class Project {
         this.employeeList = employeeList;
     }
 
-    private List<Employee> employeeList;
+    private List<Employee> employeeList = new ArrayList<>();
 
     public int getId() {
         return id;

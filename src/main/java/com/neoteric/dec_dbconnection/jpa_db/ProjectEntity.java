@@ -2,11 +2,12 @@ package com.neoteric.dec_dbconnection.jpa_db;
 import jakarta.persistence.*;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "project", schema = "sonar")
+@Table(name = "project_latest", schema = "sonar")
 public class ProjectEntity {
     @Id
     @Column(name = "id", nullable = false)
@@ -17,7 +18,7 @@ public class ProjectEntity {
     private String name;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<EmployeeEntity> employees;
+    private List<EmployeeEntity> employees = new ArrayList<>();
 
     @Column(name = "startdate", nullable = false)
     private Date startDate;

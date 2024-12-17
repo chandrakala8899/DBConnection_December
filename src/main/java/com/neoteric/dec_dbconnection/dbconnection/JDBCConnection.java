@@ -37,8 +37,8 @@ public class JDBCConnection {
                 if (!projectMap.containsKey(projectId)) {
                     project.setId(projectId);
                     project.setPname(resultSet.getString("ProjectName"));
-                    project.setStartdate(resultSet.getDate("startdate").toLocalDate());
-                    project.setEnddate(resultSet.getDate("enddate").toLocalDate());
+//                    project.setStartdate(resultSet.getDate()
+//                    project.setEnddate(resultSet.getDate("enddate").toLocalDate());
                     project.setEmployeeList(new ArrayList<>());
                     projectMap.put(projectId, project);
                     projects.add(project);

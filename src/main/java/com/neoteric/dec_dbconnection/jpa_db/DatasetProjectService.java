@@ -3,37 +3,38 @@ package com.neoteric.dec_dbconnection.jpa_db;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
+
+import java.util.List;
 
 public class DatasetProjectService {
-    public void insertEmployee(String name, String dept, double salary) {
+
+    public static void insertEmployee(EmployeeEntity employee) {
+
+
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JpaDemo");
+
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        try {
-            entityManager.getTransaction().begin();
 
-            EmployeeEntity employee = new EmployeeEntity();
-            employee.setName(name);
-            employee.setDepartment(dept);
-            employee.setSalary(salary);
+        entityManager.getTransaction().begin();
 
-            entityManager.persist(employee);
 
-            entityManager.getTransaction().commit();
+        String sql = "INSERT INTO sonar.employee_latest (id, name, dept, salary) VALUES (?, ?, ?, ?)";
 
-            System.out.println("Employee inserted successfully: " + employee);
-        } catch (Exception e) {
-            if (entityManager.getTransaction().isActive()) {
-                entityManager.getTransaction().rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (entityManager != null) {
-                entityManager.close();
-            }
-            if (entityManagerFactory != null) {
-                entityManagerFactory.close();
-            }
-        }
+        Query query = entityManager.createNativeQuery(sql);
+
+        query.setParameter(1, employee.getId());
+        query.setParameter(2, employee.getName());
+        query.setParameter(3, employee.getDepartment());
+        query.setParameter(4, employee.getSalary());
+
+        query.executeUpdate();
+
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+
     }
 }

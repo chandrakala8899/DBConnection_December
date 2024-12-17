@@ -148,14 +148,11 @@ public List<ProjectEntity> projectAlloctionEmployees(){
 
         entityManager.getTransaction().begin();
 
-        // JPQL query with the correct parameter name
         String jpql = "select e from EmployeeEntity e where e.salary < :empSalary";
 
-        // Create the query and set the correct parameter name
         Query query = entityManager.createQuery(jpql, EmployeeEntity.class);
         query.setParameter("empSalary", employeeSalary); // Parameter name should be "empSalary"
 
-        // Get the results
         List<EmployeeEntity> employees = query.getResultList();
 
         entityManager.getTransaction().commit();

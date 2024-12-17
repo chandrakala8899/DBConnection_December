@@ -5,11 +5,12 @@ import lombok.Data;
 
 
     @Entity
-    @Table(name = "Employee",schema = "sonar")
+    @Table(name = "employee_latest",schema = "sonar")
     @Data
     public class EmployeeEntity {
 
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
         private int id;
 
@@ -66,6 +67,17 @@ import lombok.Data;
 
         public void setProject(ProjectEntity project) {
             this.project = project;
+        }
+
+        @Column(name = "pid",insertable = false,updatable = false)
+        private int pid ;
+
+        public int getPid() {
+            return pid;
+        }
+
+        public void setPid(int pid) {
+            this.pid = pid;
         }
 
         // toString method for debugging
