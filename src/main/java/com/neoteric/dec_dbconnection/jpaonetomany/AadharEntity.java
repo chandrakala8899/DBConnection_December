@@ -1,13 +1,11 @@
 package com.neoteric.dec_dbconnection.jpaonetomany;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "employee_aadhar",schema = "sonar")
 public class AadharEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
