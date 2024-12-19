@@ -7,7 +7,7 @@ import lombok.Data;
     @Entity
     @Table(name = "employee_jpa",schema = "sonar")
     @Data
-    public class EmployeeEntity {
+    public class EmployeeEntityOnetoMany {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ import lombok.Data;
 
         @ManyToOne
         @JoinColumn(name = "pid",referencedColumnName = "id", nullable = false)
-        private ProjectEntity project;
+        private ProjectEntityOnetoMany project;
 
         public AadharEntity getAadharDetails() {
             return aadharDetails;
@@ -72,11 +72,11 @@ import lombok.Data;
             this.salary = salary;
         }
 
-        public ProjectEntity getProject() {
+        public ProjectEntityOnetoMany getProject() {
             return project;
         }
 
-        public void setProject(ProjectEntity project) {
+        public void setProject(ProjectEntityOnetoMany project) {
             this.project = project;
         }
 

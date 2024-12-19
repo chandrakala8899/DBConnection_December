@@ -14,16 +14,16 @@ public class EmployeeService {
         EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("JpaDemo");
         EntityManager entityManager= entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        ProjectEntity projectEntity=new ProjectEntity();
+        ProjectEntityOnetoMany projectEntity=new ProjectEntityOnetoMany();
         projectEntity.setName(project.getName());
         projectEntity.setStartDate(project.getStartDate());
         projectEntity.setEndDate(project.getEndDate());
 
-        List<EmployeeEntity> employeeEntityList = new ArrayList<>();
+        List<EmployeeEntityOnetoMany> employeeEntityList = new ArrayList<>();
 
         for(int i=0; i<project.getEmployeeList().size();i++){
             Employee emp = project.getEmployeeList().get(i);
-            EmployeeEntity employee = new EmployeeEntity();
+            EmployeeEntityOnetoMany employee = new EmployeeEntityOnetoMany();
             employee.setName(emp.getName());
             employee.setDepartment(emp.getDept());
             employee.setSalary(emp.getSalary());

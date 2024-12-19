@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "project_jpa", schema = "sonar")
-public class ProjectEntity {
+public class ProjectEntityOnetoMany {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -19,7 +19,7 @@ public class ProjectEntity {
     private String name;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<EmployeeEntity> employees = new ArrayList<>();
+    private List<EmployeeEntityOnetoMany> employees = new ArrayList<>();
 
     @Column(name = "startdate", nullable = false)
     private Date startDate;
@@ -43,11 +43,11 @@ public class ProjectEntity {
         this.name = name;
     }
 
-    public List<EmployeeEntity> getEmployees() {
+    public List<EmployeeEntityOnetoMany> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<EmployeeEntity> employees) {
+    public void setEmployees(List<EmployeeEntityOnetoMany> employees) {
         this.employees = employees;
     }
 
