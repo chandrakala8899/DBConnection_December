@@ -20,16 +20,14 @@ public class DirtyReadProblem {
 
         } catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 
-    // Simulate Dirty Read (Read Uncommitted)
     public static void simulateDirtyRead(Connection conn) throws Exception {
-        // Set the transaction isolation level to Read Uncommitted
-        conn.setAutoCommit(false); // Begin transaction
-        conn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED); // Set isolation level
 
-        // Transaction 1: Update an employee salary without committing
+        conn.setAutoCommit(false);
+        conn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
         try (Statement stmt = conn.createStatement()) {
             String updateQuery = "UPDATE employees SET salary = salary + 1000 WHERE employee_id = 101";
             stmt.executeUpdate(updateQuery);
