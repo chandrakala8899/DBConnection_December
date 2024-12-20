@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(basePackages = "com.neoteric.dec_dbconnection.springbeanlifecycle")
 public class AppConfig {
-    @Bean(initMethod = "customInit", destroyMethod = "customDestroy")
+    @Bean
     public MyBean myBean(DependencyBean dependencyBean) {
         return new MyBean(dependencyBean);
     }

@@ -12,7 +12,6 @@ public class BeanTest {
       myBean.customInit();
       myBean.preDestroy();
       myBean.postConstruct();
-
       context.close();
 
     }
