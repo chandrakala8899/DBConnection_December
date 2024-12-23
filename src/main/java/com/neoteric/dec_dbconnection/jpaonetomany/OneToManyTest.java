@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OneToManyTest {
     public static void main(String[] args) {
-List<Project> projectList = new ArrayList<>();
+      List<Project> projectList = new ArrayList<>();
       Project avvota = new Project();
         avvota.setName("avvota");
         avvota.setStartDate(new Date());
