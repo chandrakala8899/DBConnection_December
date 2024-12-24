@@ -1,5 +1,7 @@
 package com.neoteric.dec_dbconnection.creditcard.model;
 
+import com.neoteric.dec_dbconnection.creditcard.entity.TransactionKey;
+
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -36,13 +38,6 @@ public class TransactionDTO {
         this.status = status;
     }
 
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
 
     public double getAmount() {
         return amount;
@@ -58,6 +53,14 @@ public class TransactionDTO {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     public LocalDate getDate() {

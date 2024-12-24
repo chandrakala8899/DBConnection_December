@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "creditcard_table",schema = "creditcard")
+@Table(name = "creditcardtable",schema = "creditcard")
 public class CreditCardEntity {
     public CreditCardEntity(){
 

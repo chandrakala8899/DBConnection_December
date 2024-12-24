@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "transaction_table",schema = "creditcard")
+@Table(name = "transactiontable",schema = "creditcard")
 public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,7 +52,7 @@ public class TransactionEntity {
         this.date = date;
     }
 
-    public String isStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -74,6 +74,7 @@ public class TransactionEntity {
     private String status;
 
     @ManyToOne
+   // @JoinColumn()
     private CreditCardEntity creditCard;
 
 }

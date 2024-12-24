@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "emi_table",schema = "creditcard")
+@Table(name = "emitable",schema = "creditcard")
 public class EMIEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private double principalAmount;
+  //  private double principalAmount;
     private double emiAmount;
 
     public Long getId() {
@@ -21,13 +21,13 @@ public class EMIEntity {
         this.id = id;
     }
 
-    public double getPrincipalAmount() {
-        return principalAmount;
-    }
-
-    public void setPrincipalAmount(double principalAmount) {
-        this.principalAmount = principalAmount;
-    }
+//    public double getPrincipalAmount() {
+//        return principalAmount;
+//    }
+//
+//    public void setPrincipalAmount(double principalAmount) {
+//        this.principalAmount = principalAmount;
+//    }
 
     public double getEmiAmount() {
         return emiAmount;

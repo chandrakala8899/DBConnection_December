@@ -23,9 +23,9 @@
         <class> com.neoteric.dec_dbconnection.creditcard.entity.EMIEntity</class>
         <class> com.neoteric.dec_dbconnection.creditcard.entity.BillPeriodEntity</class>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/creditcard" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/creditcard" />
             <property name="jakarta.persistence.jdbc.user" value="root" />
-            <property name="jakarta.persistence.jdbc.password" value="sonar" />
+            <property name="jakarta.persistence.jdbc.password" value="Chandu@0210" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

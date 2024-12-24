@@ -2,6 +2,7 @@ package com.neoteric.dec_dbconnection.creditcard.service;
 
 import com.neoteric.dec_dbconnection.creditcard.entity.CreditCardEntity;
 import com.neoteric.dec_dbconnection.creditcard.entity.TransactionEntity;
+import com.neoteric.dec_dbconnection.creditcard.entity.TransactionKey;
 import com.neoteric.dec_dbconnection.creditcard.model.CreditCardDTO;
 import com.neoteric.dec_dbconnection.creditcard.model.TransactionDTO;
 
@@ -51,8 +52,7 @@ public class TransactionService {
 
     public  double calculateDebitTotal(CreditCardDTO creditCard) {
         return Optional.ofNullable(creditCard.getTransactions())
-                .orElseThrow(() -> new IllegalArgumentException("Transactions list is null"))
-                .stream()
+                .orElseThrow(() -> new IllegalArgumentException("Transactions list is null")).stream()
                 .filter(transaction -> "Debit".equalsIgnoreCase(transaction.getType()))
                 .mapToDouble(TransactionDTO::getAmount)
                 .sum();
@@ -61,8 +61,7 @@ public class TransactionService {
     public  double calculateCreditTotal(CreditCardDTO creditCard) {
         return Optional.ofNullable(creditCard.getTransactions())
                 .orElseThrow(() -> new IllegalArgumentException("Transactions list is null"))
-                .stream()
-                .filter(transaction -> "Credit".equalsIgnoreCase(transaction.getType()))
+                .stream().filter(transaction -> "Credit".equalsIgnoreCase(transaction.getType()))
                 .mapToDouble(TransactionDTO::getAmount)
                 .sum();
     }
@@ -79,4 +78,5 @@ public class TransactionService {
             em.close();
         }
     }
+
 }

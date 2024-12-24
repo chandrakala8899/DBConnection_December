@@ -1,14 +1,23 @@
 package com.neoteric.dec_dbconnection.springdemo;
 
 public class OracleConnectionService implements ConnectionService{
-    @Override
-    public void connect(String dbName, String username, String password) {
-        System.out.println("Connecting to Oracle database: " + dbName);
+
+
+    private TCPConnection tcpConnectionService ;
+    public OracleConnectionService(TCPConnection tcpConnectionService){
+
+        System.out.println("  from oracle constructor ");
+
+        this.tcpConnectionService = tcpConnectionService;
     }
 
-    private TCPConnection tcpConnection;
+    @Override
+    public NeoConnection connect(String dbName, String username, String password) {
+        NeoConnection  conn= new NeoConnection("MysqlConnection");
 
-    public  OracleConnectionService(TCPConnection tcpConnection){
-        System.out.println("Tcp");
+        System.out.println(" getConnnection from oracle  ");
+        tcpConnectionService.connect();
+        return conn;
     }
 }
+

@@ -7,16 +7,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class PayService {
 
-    private final EmployeeService employeeService;
+    ExternalEmployeeService externalJavaService;
 
-    @Autowired
-    public PayService(EmployeeService employeeService) {
-        this.employeeService = employeeService;
+    public PayService(@Autowired ExternalEmployeeService externalJavaService){
+        this.externalJavaService= externalJavaService;
     }
-      public void payService(){
-          System.out.println("Payservice");
-        employeeService.employeeService();
 
+
+
+
+    public void pay(){
+        System.out.println(" from pay");
+        externalJavaService.external();
     }
+
 
 }

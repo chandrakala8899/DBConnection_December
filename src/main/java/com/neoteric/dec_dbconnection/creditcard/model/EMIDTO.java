@@ -3,7 +3,7 @@ package com.neoteric.dec_dbconnection.creditcard.model;
 import java.time.LocalDate;
 
 public class EMIDTO {
-    private double principalAmount;
+  //  private double principalAmount;
     private double emiAmount;
     private int emiMonths;
     private double interestRate;
@@ -38,13 +38,13 @@ public class EMIDTO {
 
     public EMIDTO() {}
 
-    public double getPrincipalAmount() {
-        return principalAmount;
-    }
-
-    public void setPrincipalAmount(double principalAmount) {
-        this.principalAmount = principalAmount;
-    }
+//    public double getPrincipalAmount() {
+//        return principalAmount;
+//    }
+//
+//    public void setPrincipalAmount(double principalAmount) {
+//        this.principalAmount = principalAmount;
+//    }
 
     public double getEmiAmount() {
         return emiAmount;
@@ -71,7 +71,7 @@ public class EMIDTO {
     }
 
     public EMIDTO(double principalAmount, int emiMonths, double interestRate) {
-        this.principalAmount = principalAmount;
+      //  this.principalAmount = principalAmount;
         this.emiMonths = emiMonths;
         this.interestRate = interestRate;
     }

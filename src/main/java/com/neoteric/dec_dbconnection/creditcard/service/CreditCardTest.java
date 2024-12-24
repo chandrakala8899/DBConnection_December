@@ -128,7 +128,7 @@ public class CreditCardTest {
 
      EMIDTO emidto = new EMIDTO();
      emiservice.saveEMI(emidto);
-     emiservice.convertToEMI(creditCardDTO, 12, 10.0, 100.0); // Example: 12 months, 10% interest, Rs. 500 monthly expense
+     emiservice.convertToEMI(creditCardDTO, 10, 10.0, 100.0); // Example: 12 months, 10% interest, Rs. 500 monthly expense
       System.out.println("EMI conversion successful!");
 
      }

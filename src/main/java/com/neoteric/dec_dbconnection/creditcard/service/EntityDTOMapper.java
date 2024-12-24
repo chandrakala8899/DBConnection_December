@@ -40,7 +40,7 @@ public class EntityDTOMapper {
         dto.setTransactionId(entity.getTransactionId());
         dto.setDate(entity.getDate());
         dto.setType(entity.getType());
-        dto.setStatus(entity.isStatus());
+        dto.setStatus(entity.getStatus());
         return dto;
     }
 
@@ -80,11 +80,13 @@ public class EntityDTOMapper {
         if (entity == null) return null;
 
         EMIDTO dto = new EMIDTO();
-        dto.setPrincipalAmount(entity.getPrincipalAmount());
+       // dto.setPrincipalAmount(entity.getEmiAmount());
         dto.setEmiAmount(entity.getEmiAmount());
         dto.setEmiMonths(entity.getEmiMonths());
         dto.setInterestRate(entity.getInterestRate());
         dto.setStatus(entity.isStatus());
+        dto.setFromDate(entity.getFromDate());
+        dto.setToDate(entity.getToDate());
         return dto;
     }
 
@@ -92,11 +94,13 @@ public class EntityDTOMapper {
         if (dto == null) return null;
 
         EMIEntity entity = new EMIEntity();
-        entity.setPrincipalAmount(dto.getPrincipalAmount());
+       // entity.setPrincipalAmount(dto.getPrincipalAmount());
         entity.setEmiAmount(dto.getEmiAmount());
         entity.setEmiMonths(dto.getEmiMonths());
         entity.setInterestRate(dto.getInterestRate());
         entity.setStatus(dto.isStatus());
+        entity.setFromDate(dto.getFromDate());
+        entity.setToDate(dto.getToDate());
         return entity;
     }
 
