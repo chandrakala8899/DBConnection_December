@@ -74,7 +74,7 @@ public class TransactionEntity {
     private String status;
 
     @ManyToOne
-   // @JoinColumn()
+    @JoinColumn(name = "credit_card_id")
     private CreditCardEntity creditCard;
 
 }

@@ -18,7 +18,7 @@ public class EMIService {
         try {
             transaction.begin();
             EMIEntity entity = EntityDTOMapper.toEntity(dto);
-            em.persist(entity); // Store EMI in DB
+            em.persist(entity);
             transaction.commit();
         } catch (Exception e) {
             if (transaction.isActive()) {
@@ -71,8 +71,6 @@ public class EMIService {
             emiTransaction.setDate(fromDate);
             emiTransaction.setAmount(emi);
             creditCardDTO.getTransactions().add(emiTransaction);
-
-            // Add Monthly Expense transaction if applicable
             if (monthlyExpense != null && monthlyExpense > 0) {
                 TransactionDTO expenseTransaction = new TransactionDTO();
                 expenseTransaction.setTransactionId("EXP" + i);
@@ -82,12 +80,10 @@ public class EMIService {
                 creditCardDTO.getTransactions().add(expenseTransaction);
             }
 
-            // Create EMI Entity
             EMIEntity emiEntity = new EMIEntity();
             emiEntity.setEmiMonths(i);
             emiEntity.setFromDate(fromDate);
             emiEntity.setToDate(toDate);
-           // emiEntity.setPrincipalAmount(principal);
             emiEntity.setEmiAmount(emi);
             emiEntity.setInterestRate(interestRate);
             emiEntity.setStatus(true);

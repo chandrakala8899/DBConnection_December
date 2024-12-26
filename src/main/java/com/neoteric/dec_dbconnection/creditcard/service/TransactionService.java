@@ -2,7 +2,6 @@ package com.neoteric.dec_dbconnection.creditcard.service;
 
 import com.neoteric.dec_dbconnection.creditcard.entity.CreditCardEntity;
 import com.neoteric.dec_dbconnection.creditcard.entity.TransactionEntity;
-import com.neoteric.dec_dbconnection.creditcard.entity.TransactionKey;
 import com.neoteric.dec_dbconnection.creditcard.model.CreditCardDTO;
 import com.neoteric.dec_dbconnection.creditcard.model.TransactionDTO;
 
@@ -18,23 +17,15 @@ public class TransactionService {
         EntityTransaction transactionObj = em.getTransaction();
         try {
             transactionObj.begin();
-
-            // Map DTOs to Entities
             CreditCardEntity creditCardEntity = EntityDTOMapper.toEntity(creditCard);
             TransactionEntity transactionEntity = EntityDTOMapper.toEntity(transaction);
 
-
-            // Associate the transaction with the credit card
             creditCard.getTransactions().add(transaction);
-
-            // Update balance based on transaction type
             if ("Debit".equalsIgnoreCase(transaction.getType())) {
                 creditCard.setBalance(creditCard.getBalance() - transaction.getAmount());
             } else if ("Credit".equalsIgnoreCase(transaction.getType())) {
                 creditCard.setBalance(creditCard.getBalance() + transaction.getAmount());
             }
-
-            // Persist entities
             em.merge(creditCardEntity);
             em.persist(transactionEntity);
 

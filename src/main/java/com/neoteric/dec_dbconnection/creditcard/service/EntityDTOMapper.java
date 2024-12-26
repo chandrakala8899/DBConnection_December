@@ -94,7 +94,6 @@ public class EntityDTOMapper {
         if (dto == null) return null;
 
         EMIEntity entity = new EMIEntity();
-       // entity.setPrincipalAmount(dto.getPrincipalAmount());
         entity.setEmiAmount(dto.getEmiAmount());
         entity.setEmiMonths(dto.getEmiMonths());
         entity.setInterestRate(dto.getInterestRate());
